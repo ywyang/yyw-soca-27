@@ -43,7 +43,7 @@ class FindExistingResource:
 
     def find_vpc(self):
         try:
-            print(f"\n====== What {fg('misty_rose_3')}VPC{attr('reset')} in {self.region} do you want to use? ======\n")
+            print(f"\n======  What {fg('misty_rose_3')}VPC{attr('reset')} in {self.region} do you want to use? ======\n")
             vpcs_by_name = {}
             token = True
             next_token = None
@@ -109,7 +109,7 @@ class FindExistingResource:
 
     def find_directory_services(self, vpc_id):
         try:
-            print(f"\n====== What {fg('misty_rose_3')}Directory Services (Microsoft AD){attr('reset')} do you want to use? [region: {self.region}, vpc: {vpc_id}] ======\n")
+            print(f"\n====== yyw What {fg('misty_rose_3')}Directory Services (Microsoft AD){attr('reset')} do you want to use? [region: {self.region}, vpc: {vpc_id}] ======\n")
             ds = {}
             count = 1
             token = True
@@ -117,15 +117,18 @@ class FindExistingResource:
             max_results = 50
             while token is True:
                 if not next_token:
+                    print(f"\n====== yyw next_token\n")
                     all_ds = self.ds.describe_directories(MaxResults=max_results)
                 else:
+                    print(f"\n====== yyw else\n")
                     all_ds = self.ds.describe_directories(MaxResults=max_results, NextToken=next_token)
                 try:
                     next_token = all_ds['Token']
                 except KeyError:
                     token = False
-
+                print(f"\n====== yyw before for \n")
                 for directory in all_ds["DirectoryDescriptions"]:
+                    print(str(directory))
                     if directory["VpcSettings"]["VpcId"] == vpc_id:
                         ds[count] = {"id": directory["DirectoryId"],
                                      "name": directory["Name"],
