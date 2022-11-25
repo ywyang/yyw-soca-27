@@ -339,6 +339,7 @@ def get_install_parameters():
         if install_parameters["vpc_id"]:
             choice_mad = get_input(f"[Step 10/{total_install_phases}] {install_phases[10]}", None, ["new", "existing"],str)
             if choice_mad == "existing":
+                print(f"{fg('red')} use existing ad by yyw")
                 directory_service = FindExistingResource(install_parameters["region"],
                                                          install_parameters["client_ip"]).find_directory_services(install_parameters["vpc_id"])
                 if directory_service["success"] is True:

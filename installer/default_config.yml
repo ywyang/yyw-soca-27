@@ -79,7 +79,7 @@ Config:
 
   # Configure your Directory options below
   directoryservice:
-    provider: "openldap" # openldap (recommended) or activedirectory (Experimental)
+    provider: "activedirectory" # openldap (recommended) or activedirectory (Experimental)
     openldap:
       name: "soca.local" # base DN for your OpenLDAP. SOCA will create 3 OUs: People, Group and Sudoers. Edit source/scripts/Scheduler.sh if you need to edit these OUs
     activedirectory:
