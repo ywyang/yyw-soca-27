@@ -681,7 +681,8 @@ if __name__ == "__main__":
     else:
         cdk_cmd = args.cdk_cmd
     cmd = f"cdk {cdk_cmd} -c {' -c '.join('{}={}'.format(key,val) for (key,val) in install_parameters.items() if val is not None)} --require-approval never"
-    cmd_bootstrap = f"cdk bootstrap aws://{install_parameters['account_id']}/{install_parameters['region']} -c {' -c '.join('{}={}'.format(key,val) for (key,val) in install_parameters.items() if val is not None)}"
+    #cmd_bootstrap = f"cdk bootstrap aws://{install_parameters['account_id']}/{install_parameters['region']} -c {' -c '.join('{}={}'.format(key,val) for (key,val) in install_parameters.items() if val is not None)}"
+    cmd_bootstrap = f"cdk bootstrap aws://856654148726/cn-northwest-1 -c {' -c '.join('{}={}'.format(key,val) for (key,val) in install_parameters.items() if val is not None)}"
 
     if args.debug:
         cmd += " --debug -v -v -v"
