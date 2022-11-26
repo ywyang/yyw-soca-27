@@ -115,10 +115,13 @@ class FindExistingResource:
             token = True
             next_token = None
             max_results = 50
+            teststr = "this is test str "
             while token is True:
                 if not next_token:
                     print(f"\n====== yyw next_token\n")
-                    all_ds = self.ds.describe_directories(MaxResults=max_results)
+                    print(str(teststr))
+                    #all_ds = self.ds.describe_directories(MaxResults=max_results)
+                    all_ds = self.ds.describe_directories(MaxResults=1000)
                     print(f"\n====== yyw all_ds\n")
                     print(str(all_ds))
                 else:
