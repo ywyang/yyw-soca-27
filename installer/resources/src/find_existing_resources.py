@@ -121,7 +121,7 @@ class FindExistingResource:
                     print(f"\n====== yyw next_token\n")
                     print(str(teststr))
                     #all_ds = self.ds.describe_directories(MaxResults=max_results)
-                    all_ds = self.ds.describe_directories(MaxResults=1000)
+                    all_ds = self.ds.describe_directories()
                     print(f"\n====== yyw all_ds\n")
                     print(str(all_ds))
                 else:
