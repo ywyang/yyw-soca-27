@@ -86,6 +86,7 @@ def detect_customer_ip():
     except RequestException as e:
         print(f"Unable to automatically determine client IP: {e}")
         client_ip = False
+    #return "0.0.0.0/0"
     return client_ip
 
 
